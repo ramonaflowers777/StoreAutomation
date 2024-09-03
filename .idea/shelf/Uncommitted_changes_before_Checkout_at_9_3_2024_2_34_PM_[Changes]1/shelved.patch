@@ -1,0 +1,375 @@
+Index: src/test/java/tests/AlertTest.java
+===================================================================
+diff --git a/src/test/java/tests/AlertTest.java b/src/test/java/tests/AlertTest.java
+deleted file mode 100644
+--- a/src/test/java/tests/AlertTest.java	(revision 92d7613c1d62cd4940df6bd923e02be22ad404d5)
++++ /dev/null	(revision 92d7613c1d62cd4940df6bd923e02be22ad404d5)
+@@ -1,19 +0,0 @@
+-package tests;
+-
+-import org.openqa.selenium.By;
+-import org.testng.Assert;
+-import org.testng.annotations.Test;
+-
+-public class AlertTest extends BaseTest {
+-    private final By jsAlert = By.xpath(String.format(PRECISE_TEXT_XPATH, "JavaScript Alerts"));
+-    private final By clickForJsAlertButton = By.xpath("//button[@onclick='jsAlert()']");
+-    private final By successMessage=By.xpath(String.format(PRECISE_TEXT_XPATH,"You successfully clicked an alert"));
+-
+-    @Test
+-    public void alertTest() {
+-        driver.findElement(jsAlert).click();
+-        driver.findElement(clickForJsAlertButton).click();
+-        driver.switchTo().alert().accept();
+-        Assert.assertTrue(driver.findElement(successMessage).isDisplayed(),"Success message is not displayed");
+-    }
+-}
+Index: src/test/java/tests/FileDownloadTest.java
+===================================================================
+diff --git a/src/test/java/tests/FileDownloadTest.java b/src/test/java/tests/FileDownloadTest.java
+deleted file mode 100644
+--- a/src/test/java/tests/FileDownloadTest.java	(revision 92d7613c1d62cd4940df6bd923e02be22ad404d5)
++++ /dev/null	(revision 92d7613c1d62cd4940df6bd923e02be22ad404d5)
+@@ -1,66 +0,0 @@
+-package tests;
+-
+-import org.awaitility.Awaitility;
+-import org.awaitility.core.ConditionTimeoutException;
+-import org.openqa.selenium.By;
+-import org.openqa.selenium.chrome.ChromeDriver;
+-import org.openqa.selenium.chrome.ChromeOptions;
+-import org.testng.Assert;
+-import org.testng.annotations.AfterMethod;
+-import org.testng.annotations.BeforeMethod;
+-import org.testng.annotations.Test;
+-
+-import java.io.File;
+-import java.util.HashMap;
+-import java.util.concurrent.TimeUnit;
+-
+-public class FileDownloadTest extends BaseTest {
+-    private final String fileName = "file.txt";
+-
+-    private final By fileDownload = By.xpath(String.format(PRECISE_TEXT_XPATH, "File Download"));
+-
+-    private final By fileNameXpath = By.xpath(String.format(PRECISE_TEXT_XPATH, fileName));
+-
+-    private final String DOWNLOADS_DIR=System.getProperty("user.dir")+"/target/downloads";   ;
+-
+-    private final File downloadedFile=new File(DOWNLOADS_DIR);
+-
+-
+-    @BeforeMethod
+-    public void setUp() {
+-        ChromeOptions options = new ChromeOptions();
+-        HashMap<String, Object> chromePrefs = new HashMap<>();
+-        chromePrefs.put("download.default_directory", DOWNLOADS_DIR);
+-        options.setExperimentalOption("prefs", chromePrefs);
+-
+-
+-        driver = new ChromeDriver(options);
+-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+-        driver.get("https://the-internet.herokuapp.com/");
+-    }
+-
+-
+-    @Test
+-    public void fileDownloadTest() throws InterruptedException {
+-        driver.findElement(fileDownload).click();
+-        Assert.assertTrue(driver.findElement(fileNameXpath).isDisplayed(), "File is not displayed");
+-        driver.findElement(fileNameXpath).click();
+-        Assert.assertTrue(fileExists(downloadedFile), "Such file does not exist.");
+-
+-    }
+-    private boolean fileExists(File file){
+-        try{
+-            Awaitility.await().atMost(MAX_WAIT, TimeUnit.SECONDS).until(file::exists);
+-        }
+-        catch(ConditionTimeoutException exception){
+-            return false;
+-        }
+-        return true;
+-    }
+-    @AfterMethod
+-    public void deleteFile(){
+-        if(downloadedFile.exists()){
+-            downloadedFile.delete();
+-        }
+-    }
+-}
+Index: src/test/java/tests/BaseTest.java
+===================================================================
+diff --git a/src/test/java/tests/BaseTest.java b/src/test/java/tests/BaseTest.java
+deleted file mode 100644
+--- a/src/test/java/tests/BaseTest.java	(revision 92d7613c1d62cd4940df6bd923e02be22ad404d5)
++++ /dev/null	(revision 92d7613c1d62cd4940df6bd923e02be22ad404d5)
+@@ -1,43 +0,0 @@
+-package tests;
+-
+-import org.openqa.selenium.WebDriver;
+-import org.openqa.selenium.chrome.ChromeDriver;
+-import org.openqa.selenium.support.ui.WebDriverWait;
+-import org.testng.annotations.AfterMethod;
+-import org.testng.annotations.BeforeMethod;
+-
+-import java.time.Duration;
+-
+-public abstract class BaseTest {
+-    protected static final String URL = "https://the-internet.herokuapp.com/";
+-
+-    protected static final int MAX_WAIT = 10;
+-
+-    protected static final String PRECISE_TEXT_XPATH = "//*[text()='%s']";
+-
+-    protected static final String PARTICULAR_TEXT_XPATH = "//*[contains(text(),'%s')]";
+-
+-    protected static final String RELATIVE_RESOURCE_PATH = "src/test/resources/";
+-
+-    protected WebDriver driver;
+-
+-    protected WebDriverWait wait;
+-
+-    @BeforeMethod
+-    public void setup() {
+-        driver = new ChromeDriver();
+-        driver.manage().window().maximize();
+-        wait = new WebDriverWait(driver, Duration.ofSeconds(MAX_WAIT));
+-        driver.get(URL);
+-
+-    }
+-
+-    @AfterMethod
+-    public void teardown()
+-    {
+-        driver.quit();
+-    }
+-
+-
+-
+-}
+Index: src/main/java/org/example/Main.java
+===================================================================
+diff --git a/src/main/java/org/example/Main.java b/src/main/java/org/example/Main.java
+deleted file mode 100644
+--- a/src/main/java/org/example/Main.java	(revision 92d7613c1d62cd4940df6bd923e02be22ad404d5)
++++ /dev/null	(revision 92d7613c1d62cd4940df6bd923e02be22ad404d5)
+@@ -1,7 +0,0 @@
+-package org.example;
+-
+-public class Main {
+-    public static void main(String[] args) {
+-        System.out.println("Hello world!");
+-    }
+-}
+\ No newline at end of file
+Index: src/test/java/tests/BasicAuthTest.java
+===================================================================
+diff --git a/src/test/java/tests/BasicAuthTest.java b/src/test/java/tests/BasicAuthTest.java
+deleted file mode 100644
+--- a/src/test/java/tests/BasicAuthTest.java	(revision 92d7613c1d62cd4940df6bd923e02be22ad404d5)
++++ /dev/null	(revision 92d7613c1d62cd4940df6bd923e02be22ad404d5)
+@@ -1,31 +0,0 @@
+-package tests;
+-
+-import org.checkerframework.checker.units.qual.C;
+-import org.openqa.selenium.By;
+-import org.openqa.selenium.HasAuthentication;
+-import org.openqa.selenium.UsernameAndPassword;
+-import org.openqa.selenium.WebDriver;
+-import org.openqa.selenium.chrome.ChromeDriver;
+-import org.testng.Assert;
+-import org.testng.annotations.BeforeMethod;
+-import org.testng.annotations.Test;
+-
+-public class BasicAuthTest extends BaseTest {
+-    private final By basicAuth=By.xpath(String.format(PRECISE_TEXT_XPATH,"Basic Auth"));
+-
+-    private final By successAuth = By.xpath(String.format(PARTICULAR_TEXT_XPATH,
+-            "Congratulations! You must have the proper credentials"));
+-
+-
+-    @BeforeMethod
+-    public void basicAuth(){
+-        HasAuthentication authentication=(HasAuthentication) driver;
+-        authentication.register(() ->new UsernameAndPassword("admin", "admin"));
+-    }
+-    @Test
+-    public void basicAuthTest() {
+-        driver.findElement(basicAuth).click();
+-        Assert.assertTrue(driver.findElement(successAuth).isDisplayed(), "Message is not displayed");
+-    }
+-
+-}
+Index: src/test/java/tests/DynamicControlsTest.java
+===================================================================
+diff --git a/src/test/java/tests/DynamicControlsTest.java b/src/test/java/tests/DynamicControlsTest.java
+deleted file mode 100644
+--- a/src/test/java/tests/DynamicControlsTest.java	(revision 92d7613c1d62cd4940df6bd923e02be22ad404d5)
++++ /dev/null	(revision 92d7613c1d62cd4940df6bd923e02be22ad404d5)
+@@ -1,38 +0,0 @@
+-package tests;
+-
+-import org.openqa.selenium.By;
+-import org.openqa.selenium.TimeoutException;
+-import org.openqa.selenium.WebElement;
+-import org.openqa.selenium.support.ui.ExpectedCondition;
+-import org.openqa.selenium.support.ui.ExpectedConditions;
+-import org.testng.Assert;
+-import org.testng.annotations.Test;
+-
+-import java.util.UUID;
+-
+-public class DynamicControlsTest extends BaseTest {
+-    private final By dynamicControls=By.xpath(String.format(PRECISE_TEXT_XPATH,"Dynamic Controls"));
+-    private final By enable=By.xpath(String.format(PRECISE_TEXT_XPATH,"Enable"));
+-    private final By INPUT=By.xpath("//*[@id='input-example']//input");
+-    private final String RANDOM_TEXT= UUID.randomUUID().toString();
+-    @Test
+-    public void dynamicControlsTest(){
+-        driver.findElement(dynamicControls).click();
+-        driver.findElement(enable).click();
+-        WebElement element=driver.findElement(INPUT);
+-        Assert.assertTrue(isClickable(element),"Element is not clickable!");
+-        element.sendKeys(RANDOM_TEXT);
+-        Assert.assertEquals(element.getAttribute("value"),RANDOM_TEXT,"Messages do not match!");
+-
+-    }
+-    private boolean isClickable(WebElement element){
+-        try{
+-            wait.until(ExpectedConditions.elementToBeClickable(element));
+-        }
+-        catch (TimeoutException e){
+-            return  false;
+-        }
+-        return true;
+-    }
+-
+-}
+Index: src/test/java/tests/FileUploadTest.java
+===================================================================
+diff --git a/src/test/java/tests/FileUploadTest.java b/src/test/java/tests/FileUploadTest.java
+deleted file mode 100644
+--- a/src/test/java/tests/FileUploadTest.java	(revision 92d7613c1d62cd4940df6bd923e02be22ad404d5)
++++ /dev/null	(revision 92d7613c1d62cd4940df6bd923e02be22ad404d5)
+@@ -1,32 +0,0 @@
+-package tests;
+-
+-import org.openqa.selenium.By;
+-import org.openqa.selenium.WebElement;
+-import org.testng.Assert;
+-import org.testng.annotations.Test;
+-
+-import java.io.File;
+-
+-public class FileUploadTest extends BaseTest {
+-    private final String fileName = "hello.txt";
+-
+-    private final By fileUpload = By.xpath(String.format(PRECISE_TEXT_XPATH, "File Upload"));
+-
+-    private final By CHOOSE_FILE=By.id("file-upload");
+-
+-    private final By FILE_SUBMIT=By.id("file-submit");
+-
+-    private final By UPLOADED_FILE=By.id("uploaded-files");
+-
+-    private final String FILE_PATH=RELATIVE_RESOURCE_PATH+fileName;
+-
+-    @Test
+-    public void fileUploadTest() {
+-       driver.findElement(fileUpload).click();
+-       File fileToUpload=new File(FILE_PATH);
+-       driver.findElement(CHOOSE_FILE).sendKeys(fileToUpload.getAbsolutePath());
+-       driver.findElement(FILE_SUBMIT).click();
+-       Assert.assertEquals(driver.findElement(UPLOADED_FILE).getText(),fileName,"File names doesn't match!");
+-    }
+-
+-}
+Index: src/test/java/tests/DataTableTests.java
+===================================================================
+diff --git a/src/test/java/tests/DataTableTests.java b/src/test/java/tests/DataTableTests.java
+deleted file mode 100644
+--- a/src/test/java/tests/DataTableTests.java	(revision 92d7613c1d62cd4940df6bd923e02be22ad404d5)
++++ /dev/null	(revision 92d7613c1d62cd4940df6bd923e02be22ad404d5)
+@@ -1,33 +0,0 @@
+-package tests;
+-
+-import org.openqa.selenium.By;
+-import org.openqa.selenium.WebElement;
+-import org.testng.Assert;
+-import org.testng.annotations.Test;
+-
+-import java.util.List;
+-
+-public class  DataTableTests extends BaseTest {
+-
+-    private final By sortableDataTables=By.xpath(String.format(PRECISE_TEXT_XPATH,"Sortable Data Tables"));
+-
+-    private final By DUE_ELEMENTS_LOCATOR=By.xpath("//*[@id='table1']//td[4]");
+-
+-    private double EXPECTED_SUM=251.0;
+-
+-    private final String CURRENCY_REGEX="[^\\d.]";
+-
+-    @Test
+-    public void dataTableTest() {
+-        driver.findElement(sortableDataTables).click();
+-        List<WebElement> list=driver.findElements(DUE_ELEMENTS_LOCATOR);
+-        Double actualSum=0.0;
+-        for(WebElement element : list){
+-            String elText=element.getText();
+-            actualSum+=Double.parseDouble(elText.replaceAll(CURRENCY_REGEX,""));
+-        }
+-        Assert.assertEquals(actualSum,EXPECTED_SUM,"Sum is not correct");
+-
+-
+-    }
+-}
+Index: src/test/java/tests/FramesTest.java
+===================================================================
+diff --git a/src/test/java/tests/FramesTest.java b/src/test/java/tests/FramesTest.java
+deleted file mode 100644
+--- a/src/test/java/tests/FramesTest.java	(revision 92d7613c1d62cd4940df6bd923e02be22ad404d5)
++++ /dev/null	(revision 92d7613c1d62cd4940df6bd923e02be22ad404d5)
+@@ -1,42 +0,0 @@
+-package tests;
+-
+-import org.openqa.selenium.By;
+-import org.testng.Assert;
+-import org.testng.annotations.Test;
+-
+-import java.util.UUID;
+-
+-public class FramesTest extends BaseTest {
+-    private final String initText = "Your content goes here.";
+-    private final String textIsNotDisplayedMsg = "Text is not displayed";
+-    private final By frames = By.xpath(String.format(PRECISE_TEXT_XPATH, "Frames"));
+-    private final By iframe = By.xpath(String.format(PRECISE_TEXT_XPATH, "iFrame"));
+-    private final By edit = By.xpath(String.format(PRECISE_TEXT_XPATH, "Edit"));
+-    private final By undo = By.xpath(String.format(PRECISE_TEXT_XPATH, "Undo"));
+-    private final String randomText = UUID.randomUUID().toString();
+-    private final By text=By.xpath(String.format(PRECISE_TEXT_XPATH,"Your content goes here."));
+-
+-    private final String IFRAME_ID="mce-0-ifr";
+-    private final By TEXT_FILE=By.id("tinymce");
+-
+-    @Test
+-    public void iFrameTest() {
+-        driver.findElement(frames).click();
+-        driver.findElement(iframe).click();
+-
+-        driver.switchTo().frame(IFRAME_ID);
+-        driver.findElement(TEXT_FILE).sendKeys(randomText);
+-        driver.findElement(text).sendKeys(randomText);
+-
+-        Assert.assertTrue(driver.findElement(By.xpath(String.format(PRECISE_TEXT_XPATH, initText + randomText))).isDisplayed(),
+-                textIsNotDisplayedMsg);
+-
+-        driver.switchTo().defaultContent();
+-        driver.findElement(edit).click();
+-        driver.findElement(undo).click();
+-
+-        driver.switchTo().frame(IFRAME_ID);
+-        Assert.assertTrue(driver.findElement(By.xpath(String.format(PRECISE_TEXT_XPATH,initText))).isDisplayed(),textIsNotDisplayedMsg);
+-
+-    }
+-}
