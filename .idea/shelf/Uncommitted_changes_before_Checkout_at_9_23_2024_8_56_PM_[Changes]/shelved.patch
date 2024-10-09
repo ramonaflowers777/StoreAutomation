@@ -1,0 +1,15 @@
+Index: src/test/java/tests/WikipediaDownloadTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package tests;\r\n\r\nimport org.testng.Assert;\r\nimport org.testng.annotations.Test;\r\nimport pages.DownloadAsPdfPage;\r\nimport pages.FileDownloadPage;\r\nimport pages.MainPage;\r\n\r\npublic class WikipediaDownloadTest extends BaseTest {\r\n    private static final String searchInput = \"Albert Einstein\";\r\n\r\n    MainPage mainPage = new MainPage();\r\n    FileDownloadPage downloadPage = new FileDownloadPage();\r\n    DownloadAsPdfPage downloadAsPdfPage = new DownloadAsPdfPage();\r\n\r\n    @Test\r\n    public void wikipediaDownloadingPdfTest() {\r\n        Assert.assertTrue(mainPage.state().waitForDisplayed(),\"Main page is not displayed\");\r\n        mainPage.searchForText(searchInput);\r\n\r\n        downloadPage.openToolsBar();\r\n        downloadPage.clickOnDownloadAsPDF();\r\n        downloadAsPdfPage.downloadFile();\r\n        Assert.assertEquals(downloadAsPdfPage.getFileName(),downloadAsPdfPage.downloadedFileName(),\"File names do not match\");\r\n\r\n    }\r\n}\r\n
+===================================================================
+diff --git a/src/test/java/tests/WikipediaDownloadTest.java b/src/test/java/tests/WikipediaDownloadTest.java
+--- a/src/test/java/tests/WikipediaDownloadTest.java	(revision 0d6f911cf6112f699b9ef7a66933893f92c6e20c)
++++ b/src/test/java/tests/WikipediaDownloadTest.java	(date 1727031711201)
+@@ -1,5 +1,6 @@
+ package tests;
+ 
++import aquality.selenium.browser.AqualityServices;
+ import org.testng.Assert;
+ import org.testng.annotations.Test;
+ import pages.DownloadAsPdfPage;

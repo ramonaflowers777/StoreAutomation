@@ -1,0 +1,49 @@
+Index: src/test/java/tests/BaseTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package tests;\r\n\r\nimport org.openqa.selenium.WebDriver;\r\nimport org.openqa.selenium.chrome.ChromeDriver;\r\nimport org.openqa.selenium.support.ui.WebDriverWait;\r\nimport org.testng.annotations.AfterMethod;\r\nimport org.testng.annotations.BeforeMethod;\r\n\r\nimport java.time.Duration;\r\n\r\npublic abstract class BaseTest {\r\n    protected static final String URL = \"https://the-internet.herokuapp.com/\";\r\n\r\n    protected static final int MAX_WAIT = 10;\r\n\r\n    protected static final String PRECISE_TEXT_XPATH = \"//*[text()='%s']\";\r\n\r\n    protected static final String PARTICULAR_TEXT_XPATH = \"//*[contains(text(),'%s')]\";\r\n\r\n    protected static final String RELATIVE_RESOURCE_PATH = \"src/test/resources/\";\r\n\r\n    protected WebDriver driver;\r\n\r\n    protected WebDriverWait wait;\r\n\r\n    @BeforeMethod\r\n    public void setup() {\r\n        driver = new ChromeDriver();\r\n        driver.manage().window().maximize();\r\n        wait = new WebDriverWait(driver, Duration.ofSeconds(MAX_WAIT));\r\n        driver.get(URL);\r\n\r\n    }\r\n\r\n    @AfterMethod\r\n    public void teardown()\r\n    {\r\n        driver.quit();\r\n    }\r\n\r\n\r\n\r\n}\r\n
+===================================================================
+diff --git a/src/test/java/tests/BaseTest.java b/src/test/java/tests/BaseTest.java
+--- a/src/test/java/tests/BaseTest.java	(revision 36204e282e4f88649c13f5506ed4c3281282428f)
++++ b/src/test/java/tests/BaseTest.java	(date 1725555122528)
+@@ -2,6 +2,7 @@
+ 
+ import org.openqa.selenium.WebDriver;
+ import org.openqa.selenium.chrome.ChromeDriver;
++import org.openqa.selenium.chrome.ChromeOptions;
+ import org.openqa.selenium.support.ui.WebDriverWait;
+ import org.testng.annotations.AfterMethod;
+ import org.testng.annotations.BeforeMethod;
+@@ -21,6 +22,7 @@
+ 
+     protected WebDriver driver;
+ 
++
+     protected WebDriverWait wait;
+ 
+     @BeforeMethod
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\r\n  <component name=\"ProjectRootManager\" version=\"2\" default=\"true\">\r\n    <output url=\"file://$PROJECT_DIR$/out\" />\r\n  </component>\r\n</project>
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision 36204e282e4f88649c13f5506ed4c3281282428f)
++++ b/.idea/misc.xml	(date 1725555400607)
+@@ -1,7 +1,14 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="ExternalStorageConfigurationManager" enabled="true" />
+-  <component name="ProjectRootManager" version="2" default="true">
++  <component name="MavenProjectsManager">
++    <option name="originalFiles">
++      <list>
++        <option value="$PROJECT_DIR$/pom.xml" />
++      </list>
++    </option>
++  </component>
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_22" default="true" project-jdk-name="openjdk-22" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/out" />
+   </component>
+ </project>
+\ No newline at end of file

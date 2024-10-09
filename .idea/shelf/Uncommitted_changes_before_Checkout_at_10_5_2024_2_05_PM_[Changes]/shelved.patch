@@ -1,0 +1,64 @@
+Index: src/test/java/tests/BaseTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package tests;\r\n\r\nimport org.openqa.selenium.WebDriver;\r\nimport org.openqa.selenium.chrome.ChromeDriver;\r\nimport org.openqa.selenium.support.ui.WebDriverWait;\r\nimport org.testng.annotations.AfterMethod;\r\nimport org.testng.annotations.BeforeMethod;\r\n\r\nimport java.time.Duration;\r\n\r\npublic abstract class BaseTest {\r\n    protected static final int MAX_WAIT = 10;\r\n    protected static final String URL = \"https://www.accuweather.com/\";\r\n\r\n    protected WebDriver driver;\r\n    protected WebDriverWait wait;\r\n\r\n    @BeforeMethod\r\n    public void setUp() {\r\n        driver = new ChromeDriver();\r\n        driver.manage().window().maximize();\r\n        wait = new WebDriverWait(driver, Duration.ofSeconds(MAX_WAIT));\r\n        driver.get(URL);\r\n    }\r\n\r\n    @AfterMethod\r\n    public void tearDown() {\r\n        driver.quit();\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/tests/BaseTest.java b/src/test/java/tests/BaseTest.java
+--- a/src/test/java/tests/BaseTest.java	(revision b579c34aa98f850539cdbf6e80df56220592c012)
++++ b/src/test/java/tests/BaseTest.java	(date 1727957264467)
+@@ -10,7 +10,7 @@
+ 
+ public abstract class BaseTest {
+     protected static final int MAX_WAIT = 10;
+-    protected static final String URL = "https://www.accuweather.com/";
++    protected static final String URL = "https://the-internet.herokuapp.com/";
+ 
+     protected WebDriver driver;
+     protected WebDriverWait wait;
+Index: src/test/java/tests/CityWeatherPageTest.java
+===================================================================
+diff --git a/src/test/java/tests/CityWeatherPageTest.java b/src/test/java/tests/CityWeatherPageTest.java
+deleted file mode 100644
+--- a/src/test/java/tests/CityWeatherPageTest.java	(revision b579c34aa98f850539cdbf6e80df56220592c012)
++++ /dev/null	(revision b579c34aa98f850539cdbf6e80df56220592c012)
+@@ -1,38 +0,0 @@
+-package tests;
+-
+-import org.openqa.selenium.By;
+-import org.openqa.selenium.WebElement;
+-import org.openqa.selenium.support.ui.ExpectedConditions;
+-import org.testng.Assert;
+-import org.testng.annotations.Test;
+-
+-import java.util.List;
+-
+-public class CityWeatherPageTest extends BaseTest {
+-    private static final String CITY_NAME = "New York";
+-
+-    private final By agreeButton = By.className("policy-accept");
+-    private final By searchInput = By.className("search-input");
+-    private final By resultDiv = By.tagName("div");
+-    private final By searchResult = By.className("search-results");
+-    private final By resultsContainer = By.className("results-container");
+-    private final By headerName = By.className("header-loc");
+-
+-    @Test
+-    public void cityWeatherPageHeaderTest() {
+-        driver.findElement(agreeButton).click();
+-
+-        driver.findElement(searchInput).sendKeys(CITY_NAME);
+-
+-        WebElement searchResults = wait.until(ExpectedConditions.visibilityOfElementLocated(searchResult));
+-        Assert.assertTrue(searchResults.isDisplayed(), "Search results are not displayed");
+-
+-        WebElement resultsSet = wait.until(ExpectedConditions.elementToBeClickable(resultsContainer));
+-        List<WebElement> results = resultsSet.findElements(resultDiv);
+-        results.get(0).click();
+-
+-        WebElement header = wait.until(ExpectedConditions.visibilityOfElementLocated(headerName));
+-        String headerText = header.getText();
+-        Assert.assertTrue(headerText.contains(CITY_NAME), "City weather page header contains city name from the search.");
+-    }
+-}

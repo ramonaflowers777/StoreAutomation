@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="57563689-820a-4d40-81f8-a0496063137c" name="Changes" comment="Completed Unit 4 practical task" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="unit_4_practice" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2lZohDleRZrA2gTjgUqfvvn0CV4" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.AlertTest.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Test.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Tester.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Testing.executor&quot;: &quot;Debug&quot;,
+    &quot;Cucumber Java.Feature: alert.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.tests in unit_selenium.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;TestNG.AccuWeather.consentButtonTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.AccuWeather.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.AccuWeather.search.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.AccuWeatherSearchInputTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.AlertTest.alertTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.AlertTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.BasicAuthTest.basicAuthTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.BasicAuthTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.CityWeatherPageTest.CityWeatherPageHeaderTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.CityWeatherPageTest.cityWeatherPageHeaderTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.CityWeatherPageTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.DataTableTests.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.DropDownTest.dropDownTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.DynamicControlsTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.FileDownloadTest (1).executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.FileDownloadTest.fileDownloadTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.FileUploadTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.MainPageTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.MainPageTest.mainPageIsDisplayed.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.Ready.fileUpload.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.TestRunner.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.Tester.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.WikipediaDownloadTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.WikipediaDownloadTest.search.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.WikipediaDownloadTest.wikipediaDownloadingPdfTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.tests.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;unit__5__practice&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  }
+}</component>
+  <component name="RunManager" selected="TestNG.TestRunner">
+    <configuration name="Feature: alert" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="5" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/java/features/alert.feature" />
+      <option name="GLUE" value="stepdefinitions hooks" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+      <module name="unit_bdd" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter" />
+      <option name="SUGGESTED_NAME" value="Feature: alert" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.cucumber.core.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BasicAuthTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="unit_selenium" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.BasicAuthTest" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DataTableTests" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="unit_selenium" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.DataTableTests" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DynamicControlsTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="unit_selenium" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.DynamicControlsTest" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestRunner" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="unit_bdd" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="runners.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="runners" />
+      <option name="MAIN_CLASS_NAME" value="runners.TestRunner" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="TestNG.TestRunner" />
+        <item itemvalue="Cucumber Java.Feature: alert" />
+        <item itemvalue="TestNG.DynamicControlsTest" />
+        <item itemvalue="TestNG.DataTableTests" />
+        <item itemvalue="TestNG.BasicAuthTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="57563689-820a-4d40-81f8-a0496063137c" name="Changes" comment="" />
+      <created>1725397077954</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1725397077954</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Corrected comments provided by mentor.">
+      <option name="closed" value="true" />
+      <created>1725709312208</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1725709312208</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Corrected comments provided by mentor.">
+      <option name="closed" value="true" />
+      <created>1726042937922</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1726042937922</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Corrected comments provided by mentor.">
+      <option name="closed" value="true" />
+      <created>1726128263090</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1726128263090</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Unit 3 practical tasks">
+      <option name="closed" value="true" />
+      <created>1726503228143</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1726503228143</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Unit 3 practical tasks">
+      <option name="closed" value="true" />
+      <created>1726568109102</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1726568109102</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Unit 3 practical tasks">
+      <option name="closed" value="true" />
+      <created>1726639452953</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1726639452953</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Unit 3 practical tasks">
+      <option name="closed" value="true" />
+      <created>1726762501192</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1726762501192</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Unit 3 practical tasks">
+      <option name="closed" value="true" />
+      <created>1726762575798</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1726762575798</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Unit 3 final task">
+      <option name="closed" value="true" />
+      <created>1726762781390</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1726762781390</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Corrected comments">
+      <option name="closed" value="true" />
+      <created>1727350094568</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1727350094568</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Corrected comments">
+      <option name="closed" value="true" />
+      <created>1727350942276</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1727350942276</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Corrected comments">
+      <option name="closed" value="true" />
+      <created>1727351818989</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1727351818989</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Corrected comments">
+      <option name="closed" value="true" />
+      <created>1727353329044</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1727353329044</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Completed Unit 4 practical task">
+      <option name="closed" value="true" />
+      <created>1728131587597</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1728131587597</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="d0d1ae97-a4ec-4467-95a6-825c31be0101" value="TOOL_WINDOW" />
+      </map>
+    </option>
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="unit_2_final_task" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+        <entry key="d0d1ae97-a4ec-4467-95a6-825c31be0101">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Corrected comments provided by mentor." />
+    <MESSAGE value="Unit 3 practical tasks" />
+    <MESSAGE value="Unit 3 final task" />
+    <MESSAGE value="Corrected comments" />
+    <MESSAGE value="Completed Unit 4 practical task" />
+    <option name="LAST_COMMIT_MESSAGE" value="Completed Unit 4 practical task" />
+  </component>
+</project>
